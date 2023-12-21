@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="home.css">
+        <title>Protocolo HTTP</title>
+    </head>
+    <body>
+        <h1>Protocolo HTTP</h1>
+        <p id="protocolInfo">Aguardando informações...</p>
+
+        <script>
+            var protocol = "HTTP/1.1";
+            if (window.performance) {
+                if (window.performance.getEntriesByType) {
+                    var resources = window.performance.getEntriesByType("navigation");
+                    if (resources && resources.length > 0) {
+                        protocol = resources[0].nextHopProtocol;
+                    }
+                }
+            }
+
+            document.getElementById("protocolInfo").innerHTML = "Está sendo utilizado o protocolo <b>" + protocol + "</b>.";
+        </script>
+    </body>
+</html>
